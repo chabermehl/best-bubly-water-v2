@@ -3,6 +3,8 @@ import {useQuery} from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
 import {map} from 'lodash';
 
+import BublyFlavor from '../../atoms/BublyFlavor/BublyFlavor';
+
 const GET_FLAVORS = gql`
   query flavors {
     flavors {
@@ -14,20 +16,13 @@ const GET_FLAVORS = gql`
   }
 `;
 
-const TestQuery = () => {
+const FlavorBoard = () => {
   const {loading, error, data} = useQuery(GET_FLAVORS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return map(data.flavors, (flavor) => (
-    <div key={flavor.id}>
-      <span>ID: {flavor.id}</span>
-      <span>PK: {flavor.pk}</span>
-      <span>Flavor: {flavor.flavor}</span>
-      <span>Votes: {flavor.votes}</span>
-    </div>
-  ));
+  return map(data.flavors, (flavor) => <BublyFlavor flavor={flavor} />);
 };
 
-export default TestQuery;
+export default FlavorBoard;

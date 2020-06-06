@@ -1,7 +1,9 @@
 import React from 'react';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
-import TestQuery from './components/atoms/TestQuery/TestQuery';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
+import FlavorsPage from './components/pages/FlavorsPage/FlavorsPage';
 
 require('dotenv').config();
 
@@ -19,7 +21,11 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <TestQuery />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={FlavorsPage} />
+        </Switch>
+      </BrowserRouter>
     </ApolloProvider>
   );
 };
