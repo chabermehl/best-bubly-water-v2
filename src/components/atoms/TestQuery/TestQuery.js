@@ -1,7 +1,7 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
-import { map } from "lodash";
+import React from 'react';
+import {useQuery} from '@apollo/react-hooks';
+import {gql} from 'apollo-boost';
+import {map} from 'lodash';
 
 const GET_FLAVORS = gql`
   query flavors {
@@ -15,7 +15,7 @@ const GET_FLAVORS = gql`
 `;
 
 const TestQuery = () => {
-  const { loading, error, data } = useQuery(GET_FLAVORS);
+  const {loading, error, data} = useQuery(GET_FLAVORS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
