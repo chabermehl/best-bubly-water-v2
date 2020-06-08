@@ -4,6 +4,7 @@ import {ApolloProvider} from '@apollo/react-hooks';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import FlavorsPage from './components/pages/FlavorsPage/FlavorsPage';
+import VoteStatsPage from './components/pages/VoteStatsPage/VoteStatsPage';
 
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={FlavorsPage} />
+          <Route exact path="/stats" component={VoteStatsPage} />
         </Switch>
       </BrowserRouter>
     </ApolloProvider>
